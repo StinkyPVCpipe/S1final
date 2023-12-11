@@ -122,7 +122,8 @@ public class Main {
     public static void visitFriend()
     {
         System.out.println("\nYou and the hot detective set off towards where your friend is staying at the hotel" +
-                "giving a knock on her door, and when she opens it, your instantly relieved ");
+                "giving a knock on her door, and when she opens it, you're instantly relieved when you see your friends" +
+                "face, having longed for some sense ");
 
 
     }
