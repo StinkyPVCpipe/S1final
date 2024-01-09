@@ -31,6 +31,11 @@ public class Adventure
 
     //setters or whateva
 
+    public void setQcount(int qCount)
+{
+    questionCount = qCount;
+}
+
     //getters
     public String getName()
     {
@@ -123,20 +128,50 @@ public class Adventure
                 {
                     return "\n\tOf course madame, friends are important, but for help or suspicion? i suppose we will see.";
                 }
-            if (questionCount == 6)//PARENTS
-            {
-                if (option == 1)
-                {
 
-                    return "Oh of course sweetheart, you know I'm here for you. Here come inside and sit down.";
-                }
-                if (option == 2)
-                {
-                    return "Well I mean, can you blame me? It is a little strange...your rich fiance dying just before" +
-                            " you two got married. I mean, you know you're bank account is overflowing right now right?" +
-                            "but that doesn't matter, I know you wouldn't kill him. How about we sit down for a talk?";
-                }
-            }
+                    //questionCount = qCount;
+                    if (questionCount == 6)//PARENTS can we talk vs Ik u think i killed him
+                    {
+                        if (option == 1) {
+
+                            return "Oh of course sweetheart, you know I'm here for you. Here come inside and sit down.";
+                        }
+                        if (option == 2) {
+                            return "\n\tWell I mean, can you blame me? It is a little strange...your rich fiance dying just before" +
+                                    "\n\tyou two got married. I mean, you know you're bank account is overflowing right now right?" +
+                                    "\n\tbut that doesn't matter, I know you wouldn't kill him. How about we sit down for a talk?";
+                        }
+                    }
+                    if (questionCount == 7)//talk to friend vs i think my parents killed him
+                    {
+                        if (option == 1)
+                        {
+                            return "\n\n\t'Right away mademoiselle, let us set off.'";
+                        }
+                        if (option == 2) {
+                            return "\n\n\t'Are you certain mademoiselle? They did seem rather suspicious, and well...Ill take your word for it.'";
+                        }
+                    }
+                    if (questionCount == 8) { //parents killed vs friend killed
+                        if (option == 1) {
+                            return "\n\n\t'Of course! Your parents acted so strange, and they said aloud that they never liked your fiance! We'll have them arrested immediately!";
+                        }
+                        if (option == 2) {
+                            return "\n\n\t'Of course! Your friend acted so strange, and she said aloud that she wanted to marry before you! We'll have her arrested immediately!";
+                        }
+                    }
+                    if (questionCount == 9)
+                    {
+                        if (option == 1)
+                        {
+                            return "\n\n\t'I don't know much...only that he was found dead this morning! And-'";
+                        }
+                        if (option == 2);
+                        {
+                            return "\n\n\t'Can you blame me for being surprised seeing you with another man, so soon after your fiance died...'";
+                        }
+                    }
+
         }
         return ":3";
     }

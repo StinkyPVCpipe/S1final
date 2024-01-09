@@ -5,6 +5,7 @@ public class Main {
         String name1, name2;
         int option;
         int route=0;
+        int qCount=0;
         Scanner scan = new Scanner(System.in);
 
         System.out.println("\nHello Welcome to Murder at the Discount Wedding Venue");
@@ -60,11 +61,12 @@ public class Main {
         option = scan.nextInt();
         checkInput(option, player, scan);
         if (option == 1) {
-            visitParents(option, scan, player, route);
-        } else {
-            visitFriend();
+            visitParents(option, scan, player, route, qCount);
         }
-
+        else
+        {
+            visitFriend(option, scan, player, route);
+        }
     }
 
     public static void checkInput(int option, Adventure player, Scanner scan) {
@@ -77,7 +79,7 @@ public class Main {
     }
 
 
-    public static void visitParents(int option, Scanner scan, Adventure player, int route)
+    public static void visitParents(int option, Scanner scan, Adventure player, int route, int qCount)
     {
         route++;
         Adventure mom = new Adventure("mom");
@@ -91,6 +93,8 @@ public class Main {
         System.out.println(player.options("Yeah its hard, but can we talk to you?", "I know you think I killed him."));
         option = scan.nextInt();
         checkInput(option, player, scan);
+        player.setQcount(5);
+        System.out.println(player.ChooseOption(option));
         System.out.println("\n\nYou and Alejandro take your moms offer and step inside the room to sit on the couch, where" +
                 "\nyour dad is already resting with his head in his hands. But when you step inside he looks up." +
                 "\n\n\t'Sweetheart' your dad spoke up, 'I know you didn't kill your fiance. How could you have when your fiance was dressed" +
@@ -108,22 +112,52 @@ public class Main {
             System.out.println("\n\n\t'Madamoiselle, would you take interest in hablaring to tu amiga now?" +
                     "\n\nHow do you respond?");
             System.out.println(player.options("Lets go talk to her", "Alejandro, I think my parents killed my fiance."));
+            player.setQcount(7);
             option = scan.nextInt();
+            checkInput(option, player, scan);
+            System.out.println(player.ChooseOption(option));
         } else
-        {//504 plan core >_<
+        {
             System.out.println("\n\tMadamoiselle, what do you wish to do now?" +
                     "\n\nHow do you respond?");
             System.out.println(player.options("I think my parents killed my fiance", "I think my friend killed my fiance"));
-
+            option = scan.nextInt();
+            checkInput(option, player, scan);
+            player.setQcount(7);
+            System.out.println(player.ChooseOption(option));
         }
 
     }
 
-    public static void visitFriend()
+    public static void visitFriend(int option, Scanner scan, Adventure player, int route)
     {
         System.out.println("\nYou and the hot detective set off towards where your friend is staying at the hotel" +
-                "giving a knock on her door, and when she opens it, you're instantly relieved when you see your friends" +
-                "face, having longed for some sense ");
+                "\ngiving a knock on her door, and when she opens it, you're instantly relieved when you see your friend's" +
+                "\nface, having longed for some sense of comfort and familiarity. And you had to force down the lingering" +
+                "\ndread over the fact that the venue owner had said that everybody was suspicious of you, and you just hoped" +
+                "\nthat your friend was the exception." +
+                "\n\n\t'OH MY GOSH GURL...I JUST GOT A CALL OVER WHATS GOING ON ARE YOU ALRIGHT?!'" +
+                "\n\nyou couldn't help but smile at the familiarity of her concern, and if she just heard about whats going " +
+                "\non then surely she's not suspicious of you, which was a relief off your back." +
+                "\n\n\t'" + player.getName() + "...who is that?' she pointed to Alejandro." +
+                "\n\n\t'Watashinonamaeha Alejandro , yo soy here to help miss Mademoiselle find who killed her ahem, fiance.'" +
+                "\n\n\t'oh...'  You did not miss how your friends demeanor seemed to change entirely, she almost seemed...nervous?" +
+                "\n\t'Alrighty. well come on inside! I'll try to help however I can!'" +
+                "\n\nYou and Alejandro step into your friends room, taking a seat on the couch across from the bed of" +
+                " which she sat.");
+        System.out.println("\nWhat do you do?");
+        player.setQcount(8);
+        System.out.println(player.options("What do you know about the situation?", "Why did you flinch when Alejandro said he was here to help me?"));
+        option = scan.nextInt();
+        checkInput(option, player, scan);
+        System.out.println(player.ChooseOption(option));
+        System.out.println("\n\n\t'"+ player.getName() + "'s friend san, please take this seriously. I'm sure you understand, your friend, dear "+ player.getName() + " here is" +
+                "being accused of murder! and we need as much evidence as possible to help.");
+        System.out.println("\n\nI do not have time to write the full ending but basically ur friend wanted to get with you and so worked together with ur parents" +
+                "to kill your fiance and then put the blame on you <3");
+
+
+
 
 
     }
